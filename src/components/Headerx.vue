@@ -4,7 +4,7 @@
     <div class="wrapper">
       <button @click="goToHome">Home</button>
       <button @click="goToAbout">About</button>
-      <el-button type="primary" :icon="Search">Search</el-button>
+      <el-button type="primary" :icon="Operation" @click="toggleSidebar">左侧栏导航</el-button>
 
     </div>
   </header>
@@ -12,7 +12,12 @@
 
 <script setup>
 import { useRouter } from 'vue-router'
+import { defineEmits } from 'vue'
+const emit = defineEmits(['toggle-sidebar'])
 
+const toggleSidebar = () => {
+  emit('toggle-sidebar')
+}
 const router = useRouter()
 const goToHome = () => {
   router.push('/')

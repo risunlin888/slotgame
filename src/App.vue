@@ -1,17 +1,23 @@
 <script setup>
 import HeaderNav from './components/Headerx.vue'
 import Footer from './components/Footer.vue'
+import { ref } from 'vue'
+const isSidebarVisible = ref(true)
+
+const toggleSidebar = () => {
+  isSidebarVisible.value = !isSidebarVisible.value
+}
 </script>
 
 <template>
   <div id="app">
     <!-- 页头导航组件 -->
-    <HeaderNav />
+    <HeaderNav @toggle-sidebar="toggleSidebar" />
 
     <!-- 主内容区域 -->
     <main class="main-layout">
       <!-- 左侧栏 -->
-      <aside class="sidebar">
+      <aside class="sidebar" v-show="isSidebarVisible">
         左侧栏内容
       </aside>
 
