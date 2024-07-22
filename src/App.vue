@@ -1,18 +1,28 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const goToHome = () => {
+  router.push('/')
+}
+
+const goToAbout = () => {
+  router.push('/about')
+}
 </script>
 
 <template>
   <header>
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
     <div class="wrapper">
-      <HelloWorld msg="测试的第一个实验!" />
+      <button @click="goToHome">Home</button>
+      <button @click="goToAbout">About</button>
     </div>
   </header>
 
   <main>
-    <TheWelcome />
+    <router-view></router-view>
   </main>
 </template>
 
