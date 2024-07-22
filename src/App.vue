@@ -2,22 +2,7 @@
 import HeaderNav from './components/Headerx.vue'
 import Footer from './components/Footer.vue'
 import { ref } from 'vue'
-import DynamicDialog, { openDialog } from './components/DynamicDialog.vue'
-import LoginForm from './views/LoginForm.vue'
-import RegisterForm from './views/RegisterForm.vue'
-import UserInfoForm from './views/UserInfoForm.vue'
-const dynamicDialog = ref(null)
-const showLoginDialog = () => {
-  openDialog(LoginForm, 'Login')
-}
 
-const showRegisterDialog = () => {
-  openDialog(RegisterForm, 'Register')
-}
-
-const showUserInfoDialog = () => {
-  openDialog(UserInfoForm, 'Edit User Info')
-}
 
 
 const isSidebarVisible = ref(true)

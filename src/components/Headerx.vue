@@ -5,14 +5,14 @@
       <button @click="goToHome">Home</button>
       <button @click="goToAbout">About</button>
       <el-button type="primary" :icon="Operation" @click="toggleSidebar">左侧栏导航</el-button>
-
+<el-button @click="showLoginDialog()">888</el-button>
     </div>
   </header>
 </template>
 
 <script setup>
 import { useRouter } from 'vue-router'
-import { defineEmits } from 'vue'
+import {defineEmits} from 'vue'
 const emit = defineEmits(['toggle-sidebar'])
 
 const toggleSidebar = () => {
