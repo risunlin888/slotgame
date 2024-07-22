@@ -1,39 +1,65 @@
 <script setup>
-import HerderNav from './components/Headerx.vue'
+import HeaderNav from './components/Headerx.vue'
+import Footer from './components/Footer.vue'
 </script>
 
 <template>
-<HerderNav />
-  <main>
-    <router-view></router-view>
-  </main>
+  <div id="app">
+    <!-- 页头导航组件 -->
+    <HeaderNav />
+
+    <!-- 主内容区域 -->
+    <main class="main-layout">
+      <!-- 左侧栏 -->
+      <aside class="sidebar">
+        左侧栏内容
+      </aside>
+
+      <!-- 右侧内容区域 -->
+      <div class="content-wrapper">
+        <!-- 上方内容区域 -->
+        <section class="content">
+          <router-view></router-view>
+        </section>
+
+        <!-- 下方页脚区域 -->
+        <Footer />
+      </div>
+    </main>
+  </div>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
+
+
+.main-layout {
+  display: flex;
+  flex: 1;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.sidebar {
+  width: 285px;
+  background-color: #f0f0f0;
+  padding: 1rem;
+  overflow-y: auto;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
+.content {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+}
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #333;
+  color: white;
 }
 </style>

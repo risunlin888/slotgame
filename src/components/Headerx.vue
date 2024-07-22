@@ -1,15 +1,18 @@
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <header class="header">
+    <img alt="Vue logo" class="logo" src="../assets/logo.svg" width="80" height="80" />
     <div class="wrapper">
       <button @click="goToHome">Home</button>
       <button @click="goToAbout">About</button>
+      <el-button type="primary" :icon="Search">Search</el-button>
+
     </div>
   </header>
 </template>
 
 <script setup>
-import {useRouter} from 'vue-router'
+import { useRouter } from 'vue-router'
+
 const router = useRouter()
 const goToHome = () => {
   router.push('/')
@@ -20,30 +23,21 @@ const goToAbout = () => {
 </script>
 
 <style scoped>
-header {
-  line-height: 1.5;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f8f8f8;
+  height: 80px;
 }
 
 .logo {
-  display: block;
-  margin: 0 auto 2rem;
+  margin-right: 1rem;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+.wrapper {
+  display: flex;
+  gap: 1rem;
 }
 </style>
